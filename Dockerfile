@@ -11,8 +11,6 @@ RUN apt-get -y install wget \
 	php-mysql
 
 COPY /srcs/init.sh ./
-COPY /srcs/autoindex_off.sh ./
-COPY /srcs/autoindex_on.sh ./
 WORKDIR /var/www/html/
 
 RUN mkdir /etc/nginx/ssl/
@@ -27,6 +25,9 @@ COPY ./srcs/config.inc.php phpmyadmin
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
 COPY ./srcs/wp-config.php /var/www/html
+
+COPY /srcs/autoindex_off.sh ./
+COPY /srcs/autoindex_on.sh ./
 
 RUN chown -R www-data:www-data *
 RUN chmod -R 755 /var/www/*

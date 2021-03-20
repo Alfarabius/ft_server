@@ -1,2 +1,2 @@
-replace "autoindex off" "autoindex on" --/etc/etc/nginx/sites-available/default
+sed -i 's/autoindex off;/autoindex on;/g' /etc/nginx/sites-available/default
 service nginx restart
