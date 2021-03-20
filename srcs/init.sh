@@ -1,4 +1,4 @@
-openssl req -newkey rsa:2048 -x509 -days 365 -nodes -out /etc/nginx/ssl/nginx-selfsigned.crt -keyout /etc/nginx/ssl/nginx-selfsigned.key -subj '/CN=mrosie'
+openssl req -newkey rsa:2048 -x509 -days 365 -nodes -out /etc/nginx/ssl/nginx-selfsigned.crt -keyout /etc/nginx/ssl/nginx-selfsigned.key -subj "/C=RU/ST=TATARSTAN/L=KAZAN/O=xxx/OU=School21/CN=mrosie"
 service nginx start
 service mysql start
 service php7.3-fpm start
