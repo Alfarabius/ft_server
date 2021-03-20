@@ -10,6 +10,9 @@ RUN apt-get -y install wget \
 	php-xml \
 	php-mysql
 
+COPY /srcs/init.sh ./
+COPY /srcs/autoindex_off.sh ./
+COPY /srcs/autoindex_on.sh ./
 WORKDIR /var/www/html/
 
 RUN mkdir /etc/nginx/ssl/
@@ -28,5 +31,5 @@ COPY ./srcs/wp-config.php /var/www/html
 RUN chown -R www-data:www-data *
 RUN chmod -R 755 /var/www/*
 
-COPY /srcs/init.sh ./
-CMD bash ./init.sh
+
+CMD bash ~/../init.sh
